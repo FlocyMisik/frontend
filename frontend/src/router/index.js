@@ -18,7 +18,13 @@ const routes = [
     name: 'TemplateView',
     component: TemplateView
   },
-  
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () => import('../components/DashBoard.vue'),
+  },
+ 
+ 
 ]
 
 const router = new VueRouter({

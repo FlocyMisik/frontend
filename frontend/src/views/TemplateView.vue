@@ -1,4 +1,5 @@
 <template>
+  <div>
    <v-layout dark class="main">
    <p class="footer">
         &copy; {{ new Date().getFullYear() }}
@@ -8,10 +9,15 @@
        <SideBar />
        <nav-bar></nav-bar>
       
-     <v-main class="main_1 light">
+    <v-main class="main_1 light">
       <router-view></router-view>
-    </v-main>
+      </v-main>
+    
   </v-layout>
+  
+  </div>
+   
+
 </template>
 
 <script>

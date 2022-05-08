@@ -17,26 +17,34 @@
 
       <v-divider></v-divider>
 
-      <v-list dense>
-        <v-list-item
-          v-for="item in items"
-          :to="items.to"
-          :key="item.title"
-          v-on="on"
-          link
-        
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title >{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-          
-        </v-list-item>
-
-      </v-list>
+      <v-list nav dense>
+     
+          <v-list-item
+            v-for="menuItem in menuItems"
+            :key="menuItem.name"
+            link
+            class="py-5 mr-n2"
+            :to="menuItem.route"
+          >
+            
+            <v-list-item-title
+              :class="
+                'font-weight-bold text-subtitle-1 text-capitalize mb-2   ' +
+                menuItem.color +
+                '--text'
+"
+            >
+              <div>
+                <v-icon left large  :color="menuItem.color">{{
+                  menuItem.icon
+                }}</v-icon>
+                {{ menuItem.name }}
+              </div>
+            </v-list-item-title>
+          </v-list-item>
+     
+        </v-list>
+      
       
       
     </v-navigation-drawer>
@@ -48,15 +56,19 @@ export default {
   data() {
     return {
       drawer: true,
-      items: [
+      menuItems: [
         {
           title: "Dashboard",
           icon: "mdi-view-dashboard",
+          route: "/dashboard",
           to: { name: "Dashboard" ,icon:"mdi-view-dashboard" },
-          
-
         },
-
+{
+        name: "Dashboard",
+        route: "/dashboard",
+        icon: "mdi-home",
+        color: "blue",
+      },
         
       ],
       mini: true,
